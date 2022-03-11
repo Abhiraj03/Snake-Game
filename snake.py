@@ -28,7 +28,12 @@ class Snake:
     def extend(self):
         self.add_squares(self.squares[-1].position())
     
-        
+    def reset(self):
+        for sq in self.squares:
+            sq.goto(1000,1000)
+        self.squares.clear()
+        self.create_snake()
+        self.head = self.squares[0]
 
     def move(self):
         for sq in range(len(self.squares) -1,0,-1):
